@@ -18,6 +18,20 @@ export async function login(email, password) {
   return await response.json();
 }
 
+export async function logout() {
+  const response = await fetch(`${SERVER_URL}/api/auth/logout`, {
+    method: "POST",
+    credentials: "include",
+  });
+
+  if (!response.ok) {
+    const error = await response.json();
+    throw new Error(error.message);
+  }
+
+  return await response.json();
+}
+
 export async function getUser() {
   const response = await fetch(`${SERVER_URL}/api/auth/user`, {
     method: "GET",

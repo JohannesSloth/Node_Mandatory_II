@@ -9,7 +9,7 @@
   let password = "password123";
   let errorMessage = "";
 
-  async function handleSubmit(event) {
+  async function handleLogin(event) {
     event.preventDefault();
 
     try {
@@ -33,7 +33,7 @@
   <p style="color: red;">{errorMessage}</p>
 {/if}
 
-<form on:submit={handleSubmit}>
+<form on:submit={handleLogin}>
   <label>
     Email:
     <input type="email" bind:value={email} required />

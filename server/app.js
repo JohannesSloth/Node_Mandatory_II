@@ -71,6 +71,7 @@ app.post("/api/auth/login", (req, res) => {
 });
 
 app.post("/api/auth/logout", (req, res) => {
+  console.log("Session before logging out:", req.session);
   req.session.destroy((err) => {
     if (err) {
       console.error(err.message);
