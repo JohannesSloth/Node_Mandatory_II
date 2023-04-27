@@ -10,21 +10,21 @@
   let errorMessage = "";
 
   async function handleSubmit(event) {
-  event.preventDefault();
+    event.preventDefault();
 
-  try {
-    const response = await login(email, password);
+    try {
+      const response = await login(email, password);
 
-    if (response.error) {
-      errorMessage = response.error;
-    } else {
-      user.set(response.user);
-      navigate("/profile");
+      if (response.error) {
+        errorMessage = response.error;
+      } else {
+        user.set(response.user);
+        navigate("/profile");
+      }
+    } catch (error) {
+      errorMessage = "An error occurred. Please try again later.";
     }
-  } catch (error) {
-    errorMessage = "An error occurred. Please try again later.";
   }
-}
 </script>
 
 <h1>Login</h1>

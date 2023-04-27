@@ -2,7 +2,7 @@
   import { Router, Link, Route } from "svelte-navigator";
   import Home from "./pages/Home/Home.svelte";
   import Login from "./pages/Login/Login.svelte";
-  import Profile from "./pages/Profile/Profile.svelte"
+  import Profile from "./pages/Profile/Profile.svelte";
 
   import PrivateRoute from "./PrivateRoute/PrivateRoute.svelte";
 </script>
@@ -17,7 +17,7 @@
   <Route path="/">
     <Home />
   </Route>
-  
+
   <Route path="/login">
     <Login />
   </Route>

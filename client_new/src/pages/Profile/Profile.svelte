@@ -13,7 +13,7 @@
       if (response.error) {
         statusMessage = response.error;
       } else {
-        statusMessage = "Email sucessfully dispatched"
+        statusMessage = "Email sucessfully dispatched";
       }
     } catch (error) {
       statusMessage = "An error occurred. Please try again later.";
@@ -24,11 +24,14 @@
 {#if $user}
   <h1>Welcome to your profile page, {$user.email}</h1>
 
-  <p>If you would like to send an email thanking the developer, press the button below.</p>
+  <p>
+    If you would like to send an email thanking the developer, press the button
+    below.
+  </p>
   <button on:click={handleEmail} on:keydown={handleEmail}>Send email</button>
 
   {#if statusMessage}
-  <p>{statusMessage}</p>
+    <p>{statusMessage}</p>
   {/if}
 {:else}
   <p>Loading...</p>

@@ -13,7 +13,7 @@ app.use(express.json());
 app.use(
   cors({
     credentials: true,
-    origin: true
+    origin: true,
   })
 );
 app.use(
@@ -63,7 +63,7 @@ app.post("/api/auth/login", (req, res) => {
 
       req.session.user = { id: user.id, email: user.email };
 
-      console.log('Session after login:', req.session);
+      console.log("Session after login:", req.session);
 
       res.json({ user: req.session.user });
     });
@@ -82,7 +82,7 @@ app.post("/api/auth/logout", (req, res) => {
 });
 
 app.get("/api/auth/user", (req, res) => {
-  console.log('Session when requesting user:', req.session);
+  console.log("Session when requesting user:", req.session);
   if (!req.session.user) {
     return res.status(401).json({ error: "Unauthorized" });
   }
