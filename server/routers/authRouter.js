@@ -1,9 +1,21 @@
 import { Router } from "express";
-import apiLimiter from "../utils/rateLimiter.js";
+import session from "express-session";
 import bcrypt from "bcryptjs";
+import dotenv from "dotenv";
+import apiLimiter from "../utils/rateLimiter.js";
 import db from "../database/database.js";
 
+dotenv.config();
+
 const router = Router();
+router.use(
+  session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false,
+    cookie: { secure: false },
+  })
+);
 
 router.post("/api/auth/login", apiLimiter, (req, res) => {
   const { email, password } = req.body;
